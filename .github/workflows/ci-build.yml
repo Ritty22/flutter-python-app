@@ -48,12 +48,12 @@ jobs:
 
     - name: Install dependencies
       run: flutter pub get
-      working-directory: flutter-app  # Set this to the correct path where `pubspec.yaml` exists
+      working-directory: frontend  # Set this to the correct path where `pubspec.yaml` exists
 
     - name: Analyze Dart Code
       run: flutter analyze
-      working-directory: flutter-app
+      working-directory: frontend
 
     - name: Run Flutter Tests
       run: flutter test
-      working-directory: flutter-app
+      working-directory: frontend
