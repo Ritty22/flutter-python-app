@@ -44,14 +44,16 @@ jobs:
     - name: Set up Flutter
       uses: subosito/flutter-action@v2
       with:
-        flutter-version: '3.16.0'  # Update to your Flutter version if needed
+        flutter-version: '3.16.0'  # Change this if you're using a different version
 
     - name: Install dependencies
       run: flutter pub get
+      working-directory: flutter-app  # Set this to the correct path where `pubspec.yaml` exists
 
     - name: Analyze Dart Code
       run: flutter analyze
+      working-directory: flutter-app
 
     - name: Run Flutter Tests
       run: flutter test
-
+      working-directory: flutter-app
