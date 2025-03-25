@@ -35,3 +35,22 @@ jobs:
     - name: Run Backend Unit Tests
       run: pytest backend/tests
 
+      flutter-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.16.0'  # Set your Flutter version here
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Analyze Dart Code
+      run: flutter analyze
+
+    - name: Run Flutter Tests
+      run: flutter test
