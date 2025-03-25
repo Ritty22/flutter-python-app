@@ -27,5 +27,11 @@ jobs:
         pip install -r backend/requirements.txt
         pip install pytest
 
+    - name: Run Flake8 for Python Linting
+      run: |
+        pip install flake8
+        flake8 backend/
+
     - name: Run Backend Unit Tests
       run: pytest backend/tests
+
