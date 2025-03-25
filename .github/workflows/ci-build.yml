@@ -5,12 +5,10 @@ on:
     branches:
       - main
       - dev
-      - staging
   pull_request:
     branches:
       - main
       - dev
-      - staging
 
 jobs:
   build:
@@ -23,12 +21,13 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: '3.9'
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r flask-backend/requirements.txt
 
-    - name: Run pytest
-      run: pytest flask-backend/tests
+    - name: Run tests
+      run: |
+        pytest flask-backend/tests
